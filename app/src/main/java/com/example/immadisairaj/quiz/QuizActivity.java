@@ -272,6 +272,9 @@ public class QuizActivity extends AppCompatActivity {
         });
         AlertDialog scoreDialog = builder.create();
         scoreDialog.show();
+        Button button = findViewById(R.id.submit);
+        button.setVisibility(View.INVISIBLE);
+
     }
 
     public void clickSolutions() {
@@ -284,5 +287,9 @@ public class QuizActivity extends AppCompatActivity {
         solutions.putStringArrayListExtra("optD", (ArrayList<String>) qAndA.optD);
         solutions.putIntegerArrayListExtra("Answers", (ArrayList<Integer>) qAndA.Answer);
         startActivity(solutions);
+    }
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(this,"Back Press is not allowed",Toast.LENGTH_LONG).show();
     }
 }

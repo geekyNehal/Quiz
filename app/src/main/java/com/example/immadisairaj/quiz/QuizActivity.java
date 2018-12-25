@@ -269,7 +269,9 @@ public class QuizActivity extends AppCompatActivity {
         });
         builder.setNegativeButton("Exit", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
-                System.exit(0);
+                moveTaskToBack(true);
+                android.os.Process.killProcess(android.os.Process.myPid());
+                System.exit(1);
             }
         });
         AlertDialog scoreDialog = builder.create();
